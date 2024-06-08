@@ -27,12 +27,12 @@ nltk.download('wordnet')
 
 
 # Load the model
-model_path = r'C:\Users\ASUS\Desktop\k2 2023-2024\Các hệ thống thông tin nâng cao\Final1\NaiveBayes_model.sav'
+model_path = 'models/NaiveBayes_model.sav'
 with open(model_path, 'rb') as file:
     classifier = pickle.load(file)
 
 # Load the vectorizer
-vectorizer_path = r'C:\Users\ASUS\Desktop\k2 2023-2024\Các hệ thống thông tin nâng cao\Final1\CountVectorizer.sav'
+vectorizer_path = 'models/CountVectorizer.sav'
 with open(vectorizer_path, 'rb') as file:
     vectorizer = pickle.load(file)
 
