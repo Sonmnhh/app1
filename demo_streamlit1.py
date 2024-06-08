@@ -28,18 +28,23 @@ nltk.download('wordnet')
 
 # Load the model
 model_path = 'models/NaiveBayes_model.sav'
-with open(model_path, 'rb') as file:
-    classifier = pickle.load(file)
+try:
+    with open(model_path, 'rb') as file:
+        classifier = pickle.load(file)
+except FileNotFoundError:
+    st.error(f"Model file not found: {model_path}")
 
 # Load the vectorizer
 vectorizer_path = 'models/CountVectorizer.sav'
-with open(vectorizer_path, 'rb') as file:
-    vectorizer = pickle.load(file)
+try:
+    with open(vectorizer_path, 'rb') as file:
+        vectorizer = pickle.load(file)
+except FileNotFoundError:
+    st.error(f"Vectorizer file not found: {vectorizer_path}")
 
 # Text preprocessing function
 stop_words = set(stopwords.words('english'))
 lemmatizer = WordNetLemmatizer()
-
 
 # In[7]:
 
