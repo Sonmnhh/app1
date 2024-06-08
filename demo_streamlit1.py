@@ -5,10 +5,11 @@
 
 
 import streamlit as st
+import os
 import pickle
 from sklearn.feature_extraction.text import CountVectorizer
-import pandas as pd
 import re
+import string
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 from nltk.stem import WordNetLemmatizer
@@ -26,20 +27,22 @@ nltk.download('wordnet')
 # In[6]:
 
 
-# Load the model
+# Define the paths to the model and vectorizer files
 model_path = 'models/NaiveBayes_model.sav'
-try:
+vectorizer_path = 'models/CountVectorizer.sav'
+
+# Verify and load the model
+if os.path.exists(model_path):
     with open(model_path, 'rb') as file:
         classifier = pickle.load(file)
-except FileNotFoundError:
+else:
     st.error(f"Model file not found: {model_path}")
 
-# Load the vectorizer
-vectorizer_path = 'models/CountVectorizer.sav'
-try:
+# Verify and load the vectorizer
+if os.path.exists(vectorizer_path):
     with open(vectorizer_path, 'rb') as file:
         vectorizer = pickle.load(file)
-except FileNotFoundError:
+else:
     st.error(f"Vectorizer file not found: {vectorizer_path}")
 
 # Text preprocessing function
