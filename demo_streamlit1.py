@@ -28,8 +28,8 @@ nltk.download('wordnet')
 
 
 # Define the paths to the model and vectorizer files
-model_path = r'C:\Users\ASUS\Desktop\k2 2023-2024\Các hệ thống thông tin nâng cao\Final1/NaiveBayes_model.sav'
-vectorizer_path = r'C:\Users\ASUS\Desktop\k2 2023-2024\Các hệ thống thông tin nâng cao\Final1/CountVectorizer.sav'
+model_path = 'models/NaiveBayes_model.sav'
+vectorizer_path = 'models/CountVectorizer.sav'
 
 # Verify and load the model
 if os.path.exists(model_path):
